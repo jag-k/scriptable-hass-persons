@@ -1,0 +1,36 @@
+{
+  "name": "scriptable-hass-persons",
+  "version": "1.0.0",
+  "author": {
+    "email": "jag.konon@gmail.com",
+    "name": "Jag_k",
+    "url": "https://github.com/jag-k"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jag-k/scriptable-hass-persons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jag-k/scriptable-hass-persons/issues"
+  },
+  "source": "src/main.ts",
+  "main": "dist/HASS Persons.js",
+  "homepage": "https://github.com/jag-k/scriptable-hass-persons",
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@rollup/pluginutils": "^4.2.1",
+    "@types/node": "^18.6.5",
+    "@types/scriptable-ios": "latest",
+    "gulp": "^4.0.2",
+    "gulp-modify-file": "^1.0.1",
+    "gulp-rename": "^2.0.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "tslib": "^2.4.0"
+  },
+  "scripts": {
+    "build": "npm run clear && rollup -c",
+    "watch": "npm run clear && rollup -cw",
+    "clear": "rm -rf dist"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": [
+      "ES2021"
+    ],
+    "jsxFactory": "Scriptable.createElement",
+    "typeRoots": [
+      "node_modules/@types/scriptable-ios",
+      "src/types"
+    ],
+    "types": [
+      "node"
+    ],
+    "resolveJsonModule": true
+  }
+}

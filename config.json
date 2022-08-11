@@ -1,0 +1,9 @@
+{
+  "always_run_in_app": false,
+  "icon": {
+    "color": "blue",
+    "glyph": "users"
+  },
+  "name": "HASS Persons",
+  "share_sheet_inputs": []
+}
