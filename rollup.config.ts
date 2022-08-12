@@ -1,5 +1,5 @@
 import typescript from '@rollup/plugin-typescript';
-import scriptableBundle from "rollup-plugin-scriptable";
+import scriptableBundle from "@jag-k/rollup-plugin-scriptable";
 import * as config from "./config.json";
 import copy from 'rollup-plugin-copy';
 
