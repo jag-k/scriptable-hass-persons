@@ -7,13 +7,9 @@ let loggedIn = await login();
 const widget = loggedIn ? personsWidget : loginWidget
 
 if (config.runsInWidget) {
-  // const widget = loginWidget
   Script.setWidget(await widget())
 } else if (config.runsInApp) {
   if (loggedIn) {
-    // c.displayMode('small');
-    // const wS = await widget();
-    // await wS.presentSmall();
     c.displayMode('medium');
     const wM = await widget();
     await wM.presentMedium();

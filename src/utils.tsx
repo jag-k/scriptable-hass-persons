@@ -1,5 +1,5 @@
 import {HASS_API_TOKEN, HASS_URL, Person} from "./constants";
-import {Scriptable} from "./jsx";
+import {ScriptableJSX} from "@jag-k/scriptable-jsx";
 
 export function baseUrl(baseUrl: string) {
   return baseUrl.replace(/\/?$/, '')
@@ -36,21 +36,29 @@ export async function getPicture(person: Person): Promise<Image> {
   return await createRequest(Keychain.get(HASS_URL) + person.attributes.entity_picture).loadImage();
 }
 
-export async function join<_T, _R>(array: Array<_T>, callback: (a: _T) => Promise<_R>, separator?: any): Promise<Array<_R>> {
-    if (!separator) {
-      separator = <spacer/>;
-    }
+export function createPersonURL(person: Person): string {
+  return `${Keychain.get(HASS_URL)}/history?entity_id=${person.entity_id}`
+}
 
-    const result = [];
-    const length = array.length;
-    for (let i = 0; i < length; i++) {
-      const value = array[i];
-      const out = await callback(value);
-      if (!out) {
-        break
-      }
-      result.push(out);
-      if (i !== length - 1) result.push(separator);
-    }
-    return result
+export async function join<_T, _R>(
+  array: Array<_T>,
+  callback: (a: _T) => Promise<_R>,
+  separator?: any
+): Promise<Array<_R>> {
+  if (!separator) {
+    separator = <spacer/>;
   }
+
+  const result = [];
+  const length = array.length;
+  for (let i = 0; i < length; i++) {
+    const value = array[i];
+    const out = await callback(value);
+    if (!out) {
+      break
+    }
+    result.push(out);
+    if (i !== length - 1) result.push(separator);
+  }
+  return result
+}

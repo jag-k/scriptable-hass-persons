@@ -7,13 +7,16 @@
     "lib": [
       "ES2021"
     ],
-    "jsxFactory": "Scriptable.createElement",
+    "jsxFactory": "ScriptableJSX.createElement",
     "typeRoots": [
-      "node_modules/@types/scriptable-ios",
-      "src/types"
+      "./node_modules/@types",
+      "./node_modules/@jag-k/scriptable-jsx",
+      "./src/types"
     ],
     "types": [
-      "node"
+      "node",
+      "@jag-k/scriptable-jsx",
+      "@types/scriptable-ios",
     ],
     "resolveJsonModule": true
   }

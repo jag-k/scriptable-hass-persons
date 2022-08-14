@@ -7,9 +7,10 @@ import {
   TextColor,
   TransparentColor
 } from "../constants";
-import {getPersonStates, getPicture, join} from "../utils";
-import {displayMode, FULL_CARD, WIDGET_TITLE} from "../config";
-import {Scriptable} from "../jsx";
+import {createPersonURL, getPersonStates, getPicture, join} from "../utils";
+import {displayMode, FULL_CARD, WIDGET_COUNTER_ENABLED, WIDGET_TITLE} from "../config";
+import {ScriptableJSX} from "@jag-k/scriptable-jsx";
+import {JSX} from "@jag-k/scriptable-jsx/types/widget";
 
 // =========================================
 // Widgets
@@ -51,7 +52,7 @@ export async function personsWidget(): Promise<ListWidget> {
   }
 
 
-  const widgetTitleText = {
+  const widgetTitleText: JSX.TextProps = {
     font: Font.title3(),
     color: TextColor,
   };
@@ -61,10 +62,12 @@ export async function personsWidget(): Promise<ListWidget> {
       <text {...widgetTitleText}>
         {WIDGET_TITLE}
       </text>
-      <spacer/>
-      <text {...widgetTitleText}>
-        {persons.filter(p => p.state === 'home').length}/{persons.length}
-      </text>
+      {WIDGET_COUNTER_ENABLED && ([
+        <spacer/>,
+        <text {...widgetTitleText}>
+          {persons.filter(p => p.state === 'home').length}/{persons.length}
+        </text>
+      ])}
     </stack>,
     <spacer/>
   ] : [];
@@ -128,9 +131,9 @@ export async function personCard(person: Person): Promise<WidgetStack> {
   );
 
   return (
-    <stack layout={"vertical"} {...props}>
+    <stack layout={"vertical"} {...props} url={createPersonURL(person)}>
       <image
-        image={image}
+        data={image}
         align={"center"}
         opacity={opacity}
         cornerRadius={image.size.width / 2}

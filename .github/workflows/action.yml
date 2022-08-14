@@ -33,5 +33,5 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: token $GIST_TOKEN" \
             "https://api.github.com/gists/$GIST_ID" \
-            -d "$(node getFilesForGist.js)"
+            -d "$(node .github/workflows/getFilesForGist.js)"
 

@@ -18,10 +18,11 @@
   "homepage": "https://github.com/jag-k/scriptable-hass-persons",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
-    "@jag-k/rollup-plugin-scriptable": "^1.0.4",
+    "@jag-k/rollup-plugin-scriptable": "^1.0.7",
+    "@jag-k/scriptable-jsx": "^1.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.4",
-    "@types/node": "^18.7.2",
-    "@types/scriptable-ios": "latest",
+    "@types/node": "^16.11.48",
     "rollup-plugin-copy": "^3.4.0",
     "tslib": "^2.4.0"
   },
