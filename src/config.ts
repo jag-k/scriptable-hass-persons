@@ -7,7 +7,7 @@ export const WIDGET_COUNTER_ENABLED: boolean = true;
 // PLEASE, DON'T CHANGE ANYTHING BELOW THIS COMMENT,
 // IF YOU DON'T KNOW WHAT YOU ARE DOING
 // =========================================
-let dm = 'medium';  // Using display mode medium by default
+let dm = config.widgetFamily;  // Using display mode medium by default
 
 type WidgetFamily = 'small' | 'medium' | 'large' | 'extraLarge';
 
