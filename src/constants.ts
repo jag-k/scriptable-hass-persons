@@ -4,9 +4,6 @@
 export const HASS_URL = "HASS_URL"
 export const HASS_API_TOKEN = "HASS_TOKEN"
 
-
-export const SMALL = config.widgetFamily === "small"
-
 // =========================================
 // Colors
 // =========================================

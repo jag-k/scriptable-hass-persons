@@ -1,5 +1,14 @@
 const {readdirSync, readFileSync} = require('fs');
+const {version} = require('../../package.json');
 const DIST_DIR = "./dist";
+
+/**
+ * @type {{
+ *   [filename: string]: {
+ *     content: string
+ *   }
+ * }}
+ */
 const files = readdirSync(DIST_DIR).reduce(
     (res, value) => (
         {
@@ -11,4 +20,7 @@ const files = readdirSync(DIST_DIR).reduce(
     ),
     {}
 );
+
+files['version'] = {content: version}
+
 console.log(JSON.stringify({files}));

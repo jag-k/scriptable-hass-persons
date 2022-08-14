@@ -9,7 +9,7 @@ export const WIDGET_COUNTER_ENABLED: boolean = true;
 // =========================================
 let dm = config.widgetFamily;  // Using display mode medium by default
 
-type WidgetFamily = 'small' | 'medium' | 'large' | 'extraLarge';
+export type WidgetFamily = 'small' | 'medium' | 'large' | 'extraLarge';
 
 export function displayMode(setMode?: WidgetFamily): WidgetFamily {
   if (setMode) {
@@ -19,4 +19,4 @@ export function displayMode(setMode?: WidgetFamily): WidgetFamily {
 }
 
 
-export const FULL_CARD = displayMode() !== "small";
+export const FULL_CARD = () => displayMode() !== "small";

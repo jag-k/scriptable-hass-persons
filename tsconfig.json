@@ -15,7 +15,7 @@
     ],
     "types": [
       "node",
-      "@jag-k/scriptable-jsx",
+      "@jag-k/scriptable-jsx/types",
       "@types/scriptable-ios",
     ],
     "resolveJsonModule": true

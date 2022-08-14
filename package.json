@@ -1,6 +1,6 @@
 {
   "name": "scriptable-hass-persons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "email": "jag.konon@gmail.com",
     "name": "Jag_k",
@@ -19,7 +19,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "@jag-k/rollup-plugin-scriptable": "^1.0.7",
-    "@jag-k/scriptable-jsx": "^1.1.0",
+    "@jag-k/scriptable-jsx": "^1.1.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.4",
     "@types/node": "^16.11.48",

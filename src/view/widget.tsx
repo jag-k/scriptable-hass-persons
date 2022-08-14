@@ -3,14 +3,12 @@ import {
   Person,
   SecondActiveBackgroundColor,
   SecondBackgroundColor,
-  SMALL,
   TextColor,
   TransparentColor
 } from "../constants";
 import {createPersonURL, getPersonStates, getPicture, join} from "../utils";
 import {displayMode, FULL_CARD, WIDGET_COUNTER_ENABLED, WIDGET_TITLE} from "../config";
 import {ScriptableJSX} from "@jag-k/scriptable-jsx";
-import {JSX} from "@jag-k/scriptable-jsx/types/widget";
 
 // =========================================
 // Widgets
@@ -57,7 +55,7 @@ export async function personsWidget(): Promise<ListWidget> {
     color: TextColor,
   };
 
-  const widgetTitle = !SMALL ? [
+  const widgetTitle = FULL_CARD() ? [
     <stack layout={"horizontal"}>
       <text {...widgetTitleText}>
         {WIDGET_TITLE}
@@ -99,7 +97,9 @@ export async function personsWidget(): Promise<ListWidget> {
 }
 
 
-export async function personCard(person: Person): Promise<WidgetStack> {
+export async function personCard(person?: Person): Promise<WidgetStack> {
+  if (!person) return <stack/>
+
   const at_home = person.state === 'home';
   const opacity = at_home ? 1 : 0.5;
   const image = await getPicture(person);
@@ -107,7 +107,7 @@ export async function personCard(person: Person): Promise<WidgetStack> {
 
   const fontSize = 14;
   const props: JSX.StackProps = (
-    FULL_CARD ?
+    FULL_CARD() ?
       {
         spacing: 5,
         'p-all': 7,
@@ -141,7 +141,7 @@ export async function personCard(person: Person): Promise<WidgetStack> {
         borderColor={at_home ? TextColor : TransparentColor}
         resizable
       />
-      {FULL_CARD && friendlyName}
+      {FULL_CARD() && friendlyName}
     </stack>
   )
 }
